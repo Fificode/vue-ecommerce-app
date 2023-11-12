@@ -1,5 +1,30 @@
 <template>
-<div>Add Category</div>
+
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h3>Add Category</h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <form>
+        <div class="form-group">
+            <label>Category Name</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Category Description</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Category Image</label>
+            <input type="text" class="form-control">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
 </template>
 <script>
 export default {
