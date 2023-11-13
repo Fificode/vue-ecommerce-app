@@ -1,29 +1,22 @@
 <template>
-
-<div class="container">
-    <div class="row">
-        <div class="text-center">
-            <h3>Add Category</h3>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3"></div>
-    <form>
-        <div class="form-group">
-            <label>Category Name</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Category Description</label>
-            <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Category Image</label>
-            <input type="text" class="form-control">
-        </div>
-        <button type="submit">Submit</button>
-    </form>
+<div class="mx-5">
+    <h3 class="text-center">Add Category</h3>
+<form>
+  <div class="mb-3">
+    <label for="InputName" class="form-label">Category Name</label>
+    <input type="text" class="form-control" id="InputName">
+  </div>
+  <div class="mb-3">
+    <label for="InputDescription" class="form-label">Category Description</label>
+    <input type="text" class="form-control" id="InputDescription">
+  </div>
+  <div class="mb-3">
+    <label for="InputImage" class="form-label">Category Image</label>
+    <input type="text" class="form-control" id="InputImage">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
 </template>
 <script>
