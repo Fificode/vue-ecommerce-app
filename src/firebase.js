@@ -1,20 +1,21 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getDatabase } from 'firebase/database';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAveehadKxUO7kADtgn82qiqiPVOtYBOaA",
-  authDomain: "vue-ecommerce-project-62f3d.firebaseapp.com",
-  projectId: "vue-ecommerce-project-62f3d",
-  storageBucket: "vue-ecommerce-project-62f3d.appspot.com",
-  messagingSenderId: "446480111080",
-  appId: "1:446480111080:web:2bd27bc4ae04b76757405d"
+  apiKey: "AIzaSyBtzRPLSv9TYfnujoSEdPkv31hwrDY5Vgc",
+  authDomain: "ecommerce-project-1daf4.firebaseapp.com",
+  databaseURL: "https://ecommerce-project-1daf4-default-rtdb.firebaseio.com",
+  projectId: "ecommerce-project-1daf4",
+  storageBucket: "ecommerce-project-1daf4.appspot.com",
+  messagingSenderId: "998586161327",
+  appId: "1:998586161327:web:82be6813664357e9369c5a"
 };
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+export const db = getDatabase(app);

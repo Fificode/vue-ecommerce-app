@@ -28,43 +28,32 @@
 </template>
 <script>
 
-import { setDoc, doc, getDoc} from "firebase/firestore";
-import { db } from "@/firebase";
+// import { setDoc, doc, getDoc} from "firebase/firestore";
+// import { ref } from 'firebase/database';
+// import { db } from "@/firebase";
 
-const categoryRef = doc(db, 'createCategory', 'category');
-const categoryData = {
-  categoryName: 'Louis Vuitton',
-  description: 'Louis Vuitton bags',
-  id: 0,
- imageUrl: 'https://louisvuitton.com',
-  products: [{
-    name: 'Louis Vuitton one bag',
-    description: 'Louis Vuitton one fall collection bag',
-    id: 0,
-    imageUrl:'https://louisvuittonone.com',
-    price: 3000
-  }]
-}
-try {
-  await setDoc(categoryRef, categoryData);
-  console.log('User document successfully written!');
-} catch (error) {
-  console.error('Error writing user document: ', error);
-}
+// const categoryRef = doc(db, 'createCategory', 'category');
 
-try {
-  const categoryDocSnapshot = await getDoc(categoryRef);
-  if (categoryDocSnapshot.exists()) {
-    const categoryData = categoryDocSnapshot.data();
-    console.log('User data:', categoryData);
-  } else {
-    console.log('No such document!');
-  }
-} catch (error) {
-  console.error('Error getting category document:', error);
-}
+// try {
+//   await setDoc(categoryRef, categoryData);
+//   console.log('User document successfully written!');
+// } catch (error) {
+//   console.error('Error writing user document: ', error);
+// }
 
-// const axios = require("axios");
+// try {
+//   const categoryDocSnapshot = await getDoc(categoryRef);
+//   if (categoryDocSnapshot.exists()) {
+//     const categoryData = categoryDocSnapshot.data();
+//     console.log('User data:', categoryData);
+//   } else {
+//     console.log('No such document!');
+//   }
+// } catch (error) {
+//   console.error('Error getting category document:', error);
+// }
+
+const axios = require("axios");
 export default {
   
     data() {
@@ -77,20 +66,45 @@ return {
     },
     methods: {
      
-      // async addCategory (e) {
-      //   e.preventDefault();  
-       
-      //  try {
-      //      const docRef = await addDoc(collection(db, "addcategory"), {
-               
-      //      });
-      //      console.log("Category ID: ", docRef.id);
-      //    } catch (e) {
-      //      console.error("Error adding document: ", e);
-      //    }
-      // }
-       
+      addCategory(){
+        // console.log(this.categoryName, this.categoryDescription, this.imageUrl);
+//         const categoryData = {
+//   categoryName: 'Louis Vuitton',
+//   description: 'Louis Vuitton bags',
+// id: 0,
+//  imageUrl: 'https://louisvuitton.com',
+//   products: [{
+//     name: 'Louis Vuitton one bag',
+//     description: 'Louis Vuitton one fall collection bag',
+//     id: 0,
+//     imageUrl:'https://louisvuittonone.com',
+//     price: 3000
+//   }]
+// }
+        const newCategory = {
+          categoryName: this.categoryName,
+          categoryDescription : this.categoryDescription,
+          imageUrl : this.imageUrl,
+
+        };
+        const baseURL = "https://ecommerce-project-1daf4-default-rtdb.firebaseio.com/";
+        axios({
+          method: 'post',
+          url: `${baseURL}`,
+          data: JSON.stringify(newCategory),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(() => {
+console.log("Successful!")
+        }).catch(err => {
+          console.log(err);
+        })
+      }
+
     }
+
+    
 }
 </script>
 <style scoped>
