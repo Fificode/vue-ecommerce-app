@@ -87,13 +87,13 @@ return {
           imageUrl : this.imageUrl,
 
         };
-        const baseURL = "https://ecommerce-project-1daf4-default-rtdb.firebaseio.com/";
+        const baseURL = "https://ecommerce-project-1daf4-default-rtdb.firebaseio.com/data.json";
         axios({
           method: 'post',
           url: `${baseURL}`,
           data: JSON.stringify(newCategory),
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           }
         }).then(() => {
 console.log("Successful!")
