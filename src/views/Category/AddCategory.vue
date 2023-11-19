@@ -28,32 +28,10 @@
 </template>
 <script>
 
-// import { setDoc, doc, getDoc} from "firebase/firestore";
-// import { ref } from 'firebase/database';
-// import { db } from "@/firebase";
 
-// const categoryRef = doc(db, 'createCategory', 'category');
-
-// try {
-//   await setDoc(categoryRef, categoryData);
-//   console.log('User document successfully written!');
-// } catch (error) {
-//   console.error('Error writing user document: ', error);
-// }
-
-// try {
-//   const categoryDocSnapshot = await getDoc(categoryRef);
-//   if (categoryDocSnapshot.exists()) {
-//     const categoryData = categoryDocSnapshot.data();
-//     console.log('User data:', categoryData);
-//   } else {
-//     console.log('No such document!');
-//   }
-// } catch (error) {
-//   console.error('Error getting category document:', error);
-// }
 
 const axios = require("axios");
+const sweetalert = require("sweetalert");
 export default {
   
     data() {
@@ -96,6 +74,10 @@ return {
             'Content-Type': 'application/json',
           }
         }).then(() => {
+          sweetalert({
+            text: "Category added successfully",
+            icon: "Success"
+          })
 console.log("Successful!")
         }).catch(err => {
           console.log(err);
